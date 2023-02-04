@@ -26,7 +26,7 @@ jobs:
         run: yarn test
 
       - name: build
-        run: docker build -t ${{ github.repository }} -f Dockerfile.prod .
+        run: docker build -t ${{ github.event.repository.name }}  -f Dockerfile.prod .
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master

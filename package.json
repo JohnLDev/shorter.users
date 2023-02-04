@@ -8,6 +8,7 @@
     "start": "node ./build/bundle.js",
     "dev": "yarn build --watch",
     "build": "webpack",
+    "typecheck": "tsc --noEmit",
     "test": "jest"
   },
   "devDependencies": {

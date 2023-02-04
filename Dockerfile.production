@@ -1,0 +1,22 @@
+FROM node:18.14.0 as builder
+
+ENV STAGE=production
+
+COPY . .
+
+RUN yarn install --frozen-lockfile  
+
+
+RUN yarn build
+
+FROM node:18-alpine as runner
+
+ENV STAGE=production
+
+WORKDIR /app
+
+COPY --from=builder build/ package.json yarn.lock ./
+
+RUN yarn install --production --frozen-lockfile 
+
+CMD ["node", "bundle.js"]

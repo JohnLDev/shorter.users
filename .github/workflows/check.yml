@@ -6,7 +6,7 @@ on:
       - develop
       - main
 jobs:
-  check-dev:
+  check-application:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -23,15 +23,18 @@ jobs:
         run: yarn typecheck
 
       - name: Run tests
-        run: yarn test
-
-      - name: build
-        run: docker build -t ${{ github.event.repository.name }}  -f Dockerfile.production .
+        run: yarn test --coverage
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
 
-    
+      - name: build
+        run: docker build -t ${{ github.event.repository.name }}  -f Dockerfile.production .

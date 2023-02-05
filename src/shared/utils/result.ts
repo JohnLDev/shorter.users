@@ -42,6 +42,6 @@ export class Result<T = AppError> {
   }
 
   get value(): T | AppError {
-    return this.result instanceof ResultSuccess<T> ? this.result.value : this.result.value
+    return this.result.value
   }
 }

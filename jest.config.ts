@@ -11,7 +11,15 @@ const config: JestConfigWithTsJest = {
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
   moduleFileExtensions: ['js', 'ts', 'json', 'node'],
   preset: 'ts-jest',
-  testRegex: '/.*.spec.ts$'
+  testRegex: '/.*.spec.ts$',
+  moduleNameMapper: {
+    '@domain/(.*)': '<rootDir>/src/domain/$1',
+    '@business/(.*)': '<rootDir>/src/business/$1',
+    // '@controller/(.*)': '<rootDir>/src/controller/$1',
+    '@framework/(.*)': '<rootDir>/src/framework/$1',
+    '@shared/(.*)': '<rootDir>/src/shared/$1',
+    '@test/(.*)': '<rootDir>/test/$1'
+  }
 }
 
 export default config

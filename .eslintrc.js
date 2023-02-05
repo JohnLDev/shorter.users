@@ -24,6 +24,7 @@ module.exports = {
       {
         endOfLine: 'auto'
       }
-    ]
+    ],
+    '@typescript-eslint/no-extraneous-class': 'off'
   }
 }

@@ -105,7 +105,8 @@
     "test",
     ".eslintrc.js",
     "webpack.config.ts",
-    "jest.config.ts"
+    "jest.config.ts",
+    "tests/**/*.ts"
   ],
   "exclude": [
     "node_modules/**/*",

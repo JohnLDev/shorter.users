@@ -25,6 +25,7 @@ module.exports = {
         endOfLine: 'auto'
       }
     ],
+    '@typescript-eslint/strict-boolean-expressions': 'off',
     '@typescript-eslint/no-extraneous-class': 'off'
   }
 }

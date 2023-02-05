@@ -5,7 +5,7 @@ const config: JestConfigWithTsJest = {
   testEnvironment: 'node',
   clearMocks: true,
   collectCoverage: false,
-  collectCoverageFrom: ['src/domain/**/*.ts', 'src/business/**/*.ts', 'src/shared/**/*.ts', '!src/**/*.d.ts'],
+  collectCoverageFrom: ['src/domain/**/*.ts', 'src/business/useCases/**/*.ts', 'src/shared/**/*.ts', '!src/**/*.d.ts'],
   coverageDirectory: 'coverage',
   coverageProvider: 'v8',
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
@@ -16,7 +16,8 @@ const config: JestConfigWithTsJest = {
     '@domain/(.*)': '<rootDir>/src/domain/$1',
     '@business/(.*)': '<rootDir>/src/business/$1',
     '@shared/(.*)': '<rootDir>/src/shared/$1',
-    '@framework/(.*)': '<rootDir>/src/framework/$1'
+    '@framework/(.*)': '<rootDir>/src/framework/$1',
+    '@tests/(.*)': '<rootDir>/tests/$1'
   }
 }
 

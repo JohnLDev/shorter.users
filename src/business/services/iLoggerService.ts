@@ -1,4 +1,4 @@
 export interface ILoggerService {
-  info: (message: any) => void
-  error: (message: any) => void
+  info: (...message: any) => void
+  error: (...message: any) => void
 }

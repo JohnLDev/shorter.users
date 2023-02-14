@@ -1,4 +1,4 @@
-import { AppError } from '@shared/utils/error'
+import { AppError, type IAppError } from '@shared/utils/error'
 
 interface ResultInput<T> {
   value: T | AppError
@@ -29,7 +29,7 @@ export class Result<T = AppError> {
     return new Result<T>({ value: success })
   }
 
-  static fail<T = AppError>(error: AppError): Result<T> {
+  static fail<T = AppError>(error: IAppError): Result<T> {
     return new Result<T>({ value: new AppError(error) })
   }
 

@@ -1,4 +1,4 @@
-import { type IUserEntity, type UserEntity } from '../../domain/entities/user'
+import { type IUserEntity, type UserEntity } from '@domain/entities/user'
 
 interface InputVerifyExistsUserRepositoryDTO {
   email?: string

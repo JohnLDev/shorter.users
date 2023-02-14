@@ -13,10 +13,11 @@ const config: JestConfigWithTsJest = {
   preset: 'ts-jest',
   testRegex: '/.*.spec.ts$',
   moduleNameMapper: {
-    '@domain/(.*)': '<rootDir>/src/domain/$1',
-    '@business/(.*)': '<rootDir>/src/business/$1',
+    '@domain/(.*)': '<rootDir>/src/1-domain/$1',
+    '@business/(.*)': '<rootDir>/src/2-business/$1',
+    '@controller/(.*)': '<rootDir>/src/3-controller/$1',
+    '@framework/(.*)': '<rootDir>/src/4-framework/$1',
     '@shared/(.*)': '<rootDir>/src/shared/$1',
-    '@framework/(.*)': '<rootDir>/src/framework/$1',
     '@tests/(.*)': '<rootDir>/tests/$1'
   }
 }

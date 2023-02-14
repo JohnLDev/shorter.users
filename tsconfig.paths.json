@@ -2,10 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@domain/*": ["src/domain/*"],
-      "@business/*": ["src/business/*"],
+      "@domain/*": ["src/1-domain/*"],
+      "@business/*": ["src/2-business/*"],
       "@controller/*": ["src/3-controller/*"],
-      "@framework/*": ["src/framework/*"],
+      "@framework/*": ["src/4-framework/*"],
       "@shared/*": ["src/shared/*"],
       "@tests/*": ["tests/*"]
     }

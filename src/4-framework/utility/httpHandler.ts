@@ -8,7 +8,7 @@ interface HttpResponse {
 
 type HttpStatus = 200 | 201 | 400 | 401 | 403 | 404 | 500
 
-interface handlerResult {
+interface HandlerResult {
   status?: HttpStatus
   result?: any
 }
@@ -16,7 +16,7 @@ interface handlerResult {
 export async function httpHandler(
   req: Request,
   res: Response,
-  handler: () => Promise<handlerResult>
+  handler: () => Promise<HandlerResult>
 ): Promise<Response<HttpResponse>> {
   try {
     const { status, ...result } = await handler()

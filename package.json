@@ -7,14 +7,16 @@
     "prestart": "yarn build",
     "start": "node ./build/bundle.js",
     "dev": "yarn build --watch",
-    "build": "webpack",
+    "build": "rimraf build/** && webpack",
     "typecheck": "tsc --noEmit",
     "test": "jest",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/.bin/typeorm --dataSource ./src/4-framework/database/index.ts",
     "prepare": "husky install"
   },
   "devDependencies": {
     "@jest/globals": "^29.4.1",
     "@types/dotenv-webpack": "^7.0.3",
+    "@types/express": "^4.17.17",
     "@types/jest": "^29.4.0",
     "@types/node": "^18.11.18",
     "@types/webpack": "^5.28.0",
@@ -35,11 +37,20 @@
     "lint-staged": "^13.1.0",
     "nodemon-webpack-plugin": "^4.8.1",
     "prettier": "^2.8.3",
+    "rimraf": "^4.3.1",
     "ts-jest": "^29.0.5",
     "ts-loader": "^9.4.2",
     "ts-node": "^10.9.1",
+    "tsconfig-paths-webpack-plugin": "^4.0.0",
     "typescript": "*",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1"
+  },
+  "dependencies": {
+    "class-validator": "^0.14.0",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.3.12"
   }
 }

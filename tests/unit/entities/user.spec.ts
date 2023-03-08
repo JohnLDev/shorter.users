@@ -1,4 +1,4 @@
-import { UserEntity } from '../../../src/domain/entities/user'
+import { UserEntity } from '@domain/entities/user'
 
 describe('UserEntity', () => {
   const userInput = {

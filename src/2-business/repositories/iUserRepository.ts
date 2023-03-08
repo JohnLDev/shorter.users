@@ -1,10 +1,10 @@
 import { type IUserEntity, type UserEntity } from '@domain/entities/user'
 
-interface InputVerifyExistsUserRepositoryDTO {
+export interface InputVerifyExistsUserRepositoryDTO {
   email?: string
   documentNumber?: string
 }
 export interface IUserRepository {
   create: (user: UserEntity) => Promise<IUserEntity>
-  verifyExists: (email: InputVerifyExistsUserRepositoryDTO) => Promise<boolean>
+  verifyExists: (data: InputVerifyExistsUserRepositoryDTO) => Promise<boolean>
 }

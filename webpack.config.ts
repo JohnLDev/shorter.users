@@ -3,6 +3,7 @@ import path from 'path'
 import type webpack from 'webpack'
 import NodemonPlugin from 'nodemon-webpack-plugin'
 import DotenvWebpack from 'dotenv-webpack'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
 
 const config: webpack.Configuration = {
   mode: process.env.STAGE === 'production' ? 'production' : 'development',
@@ -19,7 +20,8 @@ const config: webpack.Configuration = {
     ]
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js']
+    extensions: ['.tsx', '.ts', '.js'],
+    plugins: [new TsconfigPathsPlugin()]
   },
   output: {
     path: path.resolve(__dirname, 'build'),

@@ -7,6 +7,6 @@ const app = express()
 app.use(express.json())
 app.use(loggerMiddleware)
 
-app.use(`/${msName}/v1/users`, userRoutes)
+app.use(`/${msName}/v1`, userRoutes)
 
 export { app }

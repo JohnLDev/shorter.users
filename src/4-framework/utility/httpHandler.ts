@@ -19,7 +19,8 @@ export async function httpHandler(
   handler: () => Promise<HandlerResult>
 ): Promise<Response<HttpResponse>> {
   try {
-    const { status, ...result } = await handler()
+    const { status, result } = await handler()
+    console.log(result)
 
     return res.status(status ?? 200).json({ error: false, result })
   } catch (error) {

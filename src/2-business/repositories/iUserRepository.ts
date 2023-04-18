@@ -7,4 +7,5 @@ export interface InputVerifyExistsUserRepositoryDTO {
 export interface IUserRepository {
   create: (user: UserEntity) => Promise<IUserEntity>
   verifyExists: (data: InputVerifyExistsUserRepositoryDTO) => Promise<boolean>
+  findByEmail: (email: string) => Promise<IUserEntity | null>
 }

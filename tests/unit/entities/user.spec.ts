@@ -34,4 +34,14 @@ describe('UserEntity', () => {
     expect(user).toHaveProperty('phone', updateDate.phone)
     expect(user).toHaveProperty('id', '123')
   })
+
+  it('Should be able to create a safe user', () => {
+    const user = new UserEntity(userInput)
+    const safeUser = UserEntity.safeProps(user)
+
+    expect(safeUser).toHaveProperty('name', user.name)
+    expect(safeUser).toHaveProperty('email', user.email)
+    expect(safeUser).not.toHaveProperty('password')
+    expect(safeUser).not.toHaveProperty('documentNumber')
+  })
 })

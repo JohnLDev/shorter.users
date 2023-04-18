@@ -15,4 +15,8 @@ export class UserRepository implements IUserRepository {
   async verifyExists({ documentNumber, email }: InputVerifyExistsUserRepositoryDTO): Promise<boolean> {
     return !!(await this.repository.findOneBy([{ email }, { documentNumber }]))
   }
+
+  async findByEmail(email: string): Promise<IUserEntity | null> {
+    return await this.repository.findOne({ where: { email } })
+  }
 }

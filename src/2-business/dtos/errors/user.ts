@@ -13,3 +13,17 @@ export const UserAlreadyExists = (stack: string): AppError => ({
   status: 400,
   stack
 })
+
+export const WrongCredentials = (stack: string): AppError => ({
+  code: 'USER-003',
+  message: 'Email or password is wrong',
+  status: 400,
+  stack
+})
+
+export const FailedToLoginError = (stack: string): AppError => ({
+  code: 'USER-004',
+  message: 'Failed to login',
+  status: 500,
+  stack
+})

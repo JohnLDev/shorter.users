@@ -13,6 +13,8 @@ export interface IUserEntity {
 
 export type IUserUpdateInput = Omit<IUserEntity, 'id' | 'createdAt' | 'updatedAt' | 'password'>
 
+export type ISafeUser = Pick<IUserEntity, 'name' | 'email'>
+
 export interface IUserEntityInput extends IUserUpdateInput {
   id?: string
   password: string
@@ -48,5 +50,10 @@ export class UserEntity implements IUserEntity {
   public update(props: Partial<IUserUpdateInput>): void {
     const updatedAt = new Date()
     Object.assign(this, { ...props, updatedAt })
+  }
+
+  static safeProps(user: IUserEntity): ISafeUser {
+    const { password, documentNumber, ...safeUser } = user
+    return { name: safeUser.name, email: safeUser.email }
   }
 }

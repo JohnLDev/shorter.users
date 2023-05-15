@@ -1,13 +1,12 @@
 FROM node:18.14.0 as builder
 
+WORKDIR /work
+
 ENV STAGE=production
 
 COPY . .
 
-RUN yarn install --frozen-lockfile  
-
-
-RUN yarn build
+RUN yarn install --frozen-lockfile && yarn build
 
 FROM node:18-alpine as runner
 
@@ -15,7 +14,7 @@ ENV STAGE=production
 
 WORKDIR /app
 
-COPY --from=builder build/ package.json yarn.lock ./
+COPY --from=builder /work/build/ /work/package.json /work/yarn.lock ./
 
 RUN yarn install --production --frozen-lockfile 
 
